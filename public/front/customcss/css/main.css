@@ -1,0 +1,96 @@
+:root {
+  --roboto: 'Roboto', sans-serif;
+  --robotoCondensed: 'Roboto Condensed', sans-serif;
+  --blue: #0e40f2;
+  --darkBlue: #082eb8;
+  --yellow: #ffd14c;
+  --black: #000;
+  --dark-grey: #4a4a4a;
+  --grey: #838383;
+  --light-grey: #f7f8ff;
+  --white: #fff;
+}
+
+.Heading {
+  font-size: 6rem;
+  font-family: var(--robotoCondensed);
+  font-weight: 700;
+  line-height: 7.2rem;
+}
+
+.Heading-2 {
+  font-size: 2.8rem;
+  font-family: var(--roboto);
+  font-weight: 900;
+}
+
+.Heading-3 {
+  font-size: 2rem;
+  font-family: var(--roboto);
+  font-weight: 500;
+}
+
+.Heading-4 {
+  font-size: 1.8rem;
+  font-family: var(--roboto);
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 12px;
+  font-family: var(--robotoCondensed);
+  font-weight: 400;
+}
+
+.btn-now {
+  font-size: 16px;
+  font-family: var(--robotoCondensed);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 19px;
+  height: 49px;
+  border: 1px solid;
+}
+
+div,
+p {
+  font-size: 16px;
+  font-family: inherit;
+}
+
+p {
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0.1px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--roboto);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+h1 {
+  color: var(--dark-grey);
+}
+/*# sourceMappingURL=main.css.map */
