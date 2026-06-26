@@ -17,6 +17,10 @@ services:
       - DB_DATABASE=ecom
       - DB_USERNAME=root
       - DB_PASSWORD=password
+    volumes:
+      - ./public/images:/var/www/html/public/images
+      - ./public/assets/images:/var/www/html/public/assets/images
+      - ./public/invoice_pdf:/var/www/html/public/invoice_pdf
     depends_on:
       - db
     networks:

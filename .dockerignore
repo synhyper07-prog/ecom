@@ -7,6 +7,9 @@ vendor
 .env.*
 public/hot
 public/storage
+public/assets/images
+public/images
+public/invoice_pdf
 storage/*.key
 storage/logs/*.log
 storage/framework/cache/data/*
