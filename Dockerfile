@@ -1,16 +1,4 @@
-# Stage 1: Node for frontend assets
-FROM node:14 as frontend
-
-WORKDIR /app
-COPY package*.json ./
-COPY webpack.mix.js ./
-RUN npm install
-
-COPY resources ./resources
-COPY public ./public
-RUN npm run production
-
-# Stage 2: PHP Apache for backend
+# Use PHP Apache directly to save disk space (assuming assets are pre-built)
 FROM php:7.4-apache
 
 # Install system dependencies
@@ -39,8 +27,6 @@ WORKDIR /var/www/html
 # Copy existing application directory
 COPY . /var/www/html
 
-# Copy built frontend assets from the frontend stage
-COPY --from=frontend /app/public /var/www/html/public
 
 # Copy Apache vhost configuration
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
