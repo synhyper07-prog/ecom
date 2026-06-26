@@ -16,6 +16,5 @@ storage/framework/cache/data/*
 storage/framework/sessions/*
 storage/framework/testing/*
 storage/framework/views/*
-docker
 docker-compose.yml
 Makefile
