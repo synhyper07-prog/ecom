@@ -17,7 +17,7 @@
     function get_faq_detail(id){
         $.ajax({
             type: "GET",
-            url:"http://ratcart.knovatik.com/seller/vendor-faq-by-id/"+id,
+            url:"http://Ecomerce.knovatik.com/seller/vendor-faq-by-id/"+id,
             success: function (data) {
                 $('#nav-tabContent').html(data);
             }

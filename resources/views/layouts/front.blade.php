@@ -22,26 +22,26 @@
 		<meta name="description" content="{{ $productt->meta_description != null ? $productt->meta_description : strip_tags($productt->description) }}">
 	    <meta property="og:title" content="{{$productt->name}}" />
 	    <meta property="og:description" content="{{ $productt->meta_description != null ? $productt->meta_description : strip_tags($productt->description) }}" />
-	    <meta property="og:image" content="{{asset('assets/images/thumbnails/'.$productt->thumbnail)}}" />
-	    <meta name="author" content="RatCart">
+	    <meta property="og:image" content="{{secure_asset('assets/images/thumbnails/'.$productt->thumbnail)}}" />
+	    <meta name="author" content="Ecomerce">
     	<title>{{substr($productt->name, 0,11)."-"}}{{$gs->title}}</title>
     @else
-	    <meta name="keywords" content="RatCart">
-	    <meta name="author"   content="RatCart">
+	    <meta name="keywords" content="Ecomerce">
+	    <meta name="author"   content="Ecomerce">
 		<title>{{$gs->title}}</title>
     @endif
 	<!-- favicon -->
-	<link rel="icon"  type="image/x-icon" href="{{asset('assets/images/'.$gs->favicon)}}"/>
+	<link rel="icon"  type="image/x-icon" href="{{secure_asset('assets/images/'.$gs->favicon)}}"/>
 	@if($langg->rtl == "1")
 		<!-- stylesheet -->
-		<link rel="stylesheet" href="{{asset('assets/front/css/rtl/all.css')}}">
+		<link rel="stylesheet" href="{{secure_asset('assets/front/css/rtl/all.css')}}">
 	    <!--Updated CSS-->
-	 	<link rel="stylesheet" href="{{ asset('assets/front/css/rtl/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
+	 	<link rel="stylesheet" href="{{ secure_asset('assets/front/css/rtl/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
 	@else
 		<!-- stylesheet -->
-		<link rel="stylesheet" href="{{asset('assets/front/css/all.css')}}">
+		<link rel="stylesheet" href="{{secure_asset('assets/front/css/all.css')}}">
 	    <!--Updated CSS-->
-	 	<link rel="stylesheet" href="{{ asset('assets/front/css/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
+	 	<link rel="stylesheet" href="{{ secure_asset('assets/front/css/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
 	@endif
 
 	@yield('styles')
@@ -133,20 +133,20 @@
 </head>
 <body>
 
-<a href="https://play.google.com/store/apps/details?id=com.knovatik.ratcart" class="btnDowloadFixed" target="blank"> <i class="fab fa-android"></i> <span>GET APP</span></a> 
+<a href="https://play.google.com/store/apps/details?id=com.knovatik.Ecomerce" class="btnDowloadFixed" target="blank"> <i class="fab fa-android"></i> <span>GET APP</span></a> 
 
 @if($gs->is_loader == 1)
-	<div class="preloader" id="preloader" style="background: url({{asset('assets/images/'.$gs->loader)}}) no-repeat scroll center center #FFF;"></div>
+	<div class="preloader" id="preloader" style="background: url({{secure_asset('assets/images/'.$gs->loader)}}) no-repeat scroll center center #FFF;"></div>
 	@endif
-	<div class="xloader d-none" id="xloader" style="background: url({{asset('assets/front/images/xloading.gif')}}) no-repeat scroll center center #FFF;"></div>
+	<div class="xloader d-none" id="xloader" style="background: url({{secure_asset('assets/front/images/xloading.gif')}}) no-repeat scroll center center #FFF;"></div>
 @if($gs->is_popup== 1)
 @if(isset($visited))
     <div style="display:none">
-        <img src="{{asset('assets/images/'.$gs->popup_background)}}">
+        <img src="{{secure_asset('assets/images/'.$gs->popup_background)}}">
     </div>
     <!--  Starting of subscribe-pre-loader Area   -->
     <div class="subscribe-preloader-wrap" id="subscriptionForm" style="display: none;">
-        <div class="subscribePreloader__thumb" style="background-image: url({{asset('assets/images/'.$gs->popup_background)}});">
+        <div class="subscribePreloader__thumb" style="background-image: url({{secure_asset('assets/images/'.$gs->popup_background)}});">
             <span class="preload-close"><i class="fas fa-times"></i></span>
             <div class="subscribePreloader__text text-center">
                 <h1>{{$gs->popup_title}}</h1>
@@ -243,7 +243,7 @@
 										@endif
 									@endif
 									<li class="login">
-										<a class="btnDownloadApp btn btn-outline-light" href="https://play.google.com/store/apps/details?id=com.knovatik.ratcart" target="blank" title="Download application">Download app</a>
+										<a class="btnDownloadApp btn btn-outline-light" href="https://play.google.com/store/apps/details?id=com.knovatik.Ecomerce" target="blank" title="Download application">Download app</a>
 									</li>
 								</ul>
 							</div>
@@ -261,7 +261,7 @@
 				<div class="col-lg-2 col-sm-6 col-5 remove-padding">
 					<div class="logo">
 						<a href="{{ route('front.index') }}">
-							<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
+							<img src="{{secure_asset('assets/images/'.$gs->logo)}}" alt="">
 						</a>
 					</div>
 				</div>
@@ -352,11 +352,11 @@
 								@foreach($categories as $category)
 								    <li class="{{count($category->subs) > 0 ? 'dropdown_list':''}} {{ $loop->index >= 14 ? 'rx-child' : '' }}">
 									    @if(count($category->subs) > 0)
-											<div class="img"><img src="{{ asset('assets/images/categories/'.$category->photo) }}" alt=""></div>
+											<div class="img"><img src="{{ secure_asset('assets/images/categories/'.$category->photo) }}" alt=""></div>
 											<div class="link-area"><span><a href="{{ route('front.category',$category->slug) }}">{{ $category->name }}</a></span><a href="javascript:;"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 											</div>
 									    @else
-									        <a href="{{ route('front.category',$category->slug) }}"><img src="{{ asset('assets/images/categories/'.$category->photo) }}"> {{ $category->name }}</a>
+									        <a href="{{ route('front.category',$category->slug) }}"><img src="{{ secure_asset('assets/images/categories/'.$category->photo) }}"> {{ $category->name }}</a>
 									    @endif
 										@if(count($category->subs) > 0)
 											<ul class="{{ $category->subs()->withCount('childs')->get()->sum('childs_count') > 0 ? 'categories_mega_menu' : 'categories_mega_menu column_1' }}">
@@ -430,7 +430,7 @@
 
 							<a href="{{ route('front.index') }}" class="logo-link">
 
-								<img src="{{asset('assets/images/'.$gs->footer_logo)}}" alt="">
+								<img src="{{secure_asset('assets/images/'.$gs->footer_logo)}}" alt="">
 
 							</a>
 
@@ -606,7 +606,7 @@
 
 								  <div class="post-img">
 
-									<img style="width: 73px; height: 59px;" src="{{ asset('assets/images/blogs/'.$blog->photo) }}" alt="">
+									<img style="width: 73px; height: 59px;" src="{{ secure_asset('assets/images/blogs/'.$blog->photo) }}" alt="">
 
 								  </div>
 
@@ -658,7 +658,7 @@
 
 								  <div class="post-img">
 
-									<img style="height: 50px; width:200px;" src="https://ratcart.com/assets/images/224x40.png" alt="">
+									<img src="{{secure_asset('assets/images/'.$gs->logo)}}" alt="">
 
 								  </div>
 
@@ -686,7 +686,7 @@
 
 								  <div class="post-img">
 
-									<img style="height: 50px; width:200px;" src="https://ratcart.com/assets/images/23_lgoog.png" alt="">
+									<img src="{{secure_asset('assets/images/'.$gs->logo)}}" alt="">
 
 								  </div>
 
@@ -889,7 +889,7 @@
 										@if($gs->is_capcha == 1)
 											<ul class="captcha-area">
 												<li>
-													<p><img class="codeimg1" src="{{asset("assets/images/capcha_code.png")}}" alt=""> <i class="fas fa-sync-alt pointer refresh_code "></i></p>
+													<p><img class="codeimg1" src="{{secure_asset("assets/images/capcha_code.png")}}" alt=""> <i class="fas fa-sync-alt pointer refresh_code "></i></p>
 												</li>
 											</ul>
 											<div class="form-input">
@@ -1363,7 +1363,7 @@
 
 												         	<p>
 
-												         		<img class="codeimg1" src="{{asset("assets/images/capcha_code.png")}}" alt=""> <i class="fas fa-sync-alt pointer refresh_code "></i>
+												         		<img class="codeimg1" src="{{secure_asset("assets/images/capcha_code.png")}}" alt=""> <i class="fas fa-sync-alt pointer refresh_code "></i>
 
 												         	</p>
 
@@ -1431,7 +1431,7 @@
 
 			<div class="submit-loader">
 
-				<img src="{{asset('assets/images/'.$gs->loader)}}" alt="">
+				<img src="{{secure_asset('assets/images/'.$gs->loader)}}" alt="">
 
 			</div>
 
@@ -1507,7 +1507,7 @@
 
 			            <div class="submit-loader d-none">
 
-							<img src="{{asset('assets/images/'.$gs->loader)}}" alt="">
+							<img src="{{secure_asset('assets/images/'.$gs->loader)}}" alt="">
 
 						</div>
 
@@ -1653,45 +1653,45 @@
 
 	<!-- jquery -->
 
-	{{-- <script src="{{asset('assets/front/js/all.js')}}"></script> --}}
+	{{-- <script src="{{secure_asset('assets/front/js/all.js')}}"></script> --}}
 
-	<script src="{{asset('assets/front/js/jquery.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/jquery.js')}}"></script>
 
-	<script src="{{asset('assets/front/js/vue.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/vue.js')}}"></script>
 
-	<script src="{{asset('assets/front/jquery-ui/jquery-ui.min.js')}}"></script>
+	<script src="{{secure_asset('assets/front/jquery-ui/jquery-ui.min.js')}}"></script>
 
 	<!-- popper -->
 
-	<script src="{{asset('assets/front/js/popper.min.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/popper.min.js')}}"></script>
 
 	<!-- bootstrap -->
 
-	<script src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/bootstrap.min.js')}}"></script>
 
 	<!-- plugin js-->
 
-	<script src="{{asset('assets/front/js/plugin.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/plugin.js')}}"></script>
 
 
 
-	<script src="{{asset('assets/front/js/xzoom.min.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/xzoom.min.js')}}"></script>
 
-	<script src="{{asset('assets/front/js/jquery.hammer.min.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/jquery.hammer.min.js')}}"></script>
 
-	<script src="{{asset('assets/front/js/setup.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/setup.js')}}"></script>
 
 
 
-	<script src="{{asset('assets/front/js/toastr.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/toastr.js')}}"></script>
 
 	<!-- main -->
 
-	<script src="{{asset('assets/front/js/main.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/main.js')}}"></script>
 
 	<!-- custom -->
 
-	<script src="{{asset('assets/front/js/custom.js')}}"></script>
+	<script src="{{secure_asset('assets/front/js/custom.js')}}"></script>
 
 
 

@@ -74,9 +74,9 @@ class RegisterController extends Controller{
 		}
 		if($type == 'vendor'){
 			$to = $request->email;
-	        $subject = 'Vendor signup on Ratcart';
-	        $msg = "Your form has been submitted with us. we will verify and send confermation email to you. have patience</n>.Thanks team Ratcart";
-	        $headers = "From: Ratcart<ratcartino@gmail.com>";
+	        $subject = 'Vendor signup on Ecomerce';
+	        $msg = "Your form has been submitted with us. we will verify and send confermation email to you. have patience</n>.Thanks team Ecomerce";
+	        $headers = "From: Ecomerce<Ecomerceino@gmail.com>";
 	        try {
 	            mail($to,$subject,$msg,$headers);
 	        }
@@ -86,13 +86,13 @@ class RegisterController extends Controller{
 		} 
 		$user->fill($input)->save();
 		$to        = $request->email;
-        $subject   = 'Ratcart signup';
+        $subject   = 'Ecomerce signup';
         $headers   = 'MIME-Version: 1.0' . "\n";
         $headers  .='Content-Type: text/html; charset="UTF-8"'."\n";
-        $headers  .= "From: Ratcart<ratcartinfo@gmail.com>";
-        $image     = "http://ratcart.com/assets/images/1608292812ratcart.png";
+        $headers  .= "From: Ecomerce<Ecomerceinfo@gmail.com>";
+        $image     = "http://Ecomerce.com/assets/images/1608292812Ecomerce.png";
         $message   = '<img src="'.$image.'" style="height:300px; width:300px;">';
-		$message  .= '<p>Welcome to Ratcart '.$request->name.', enjoy online shopping with us. thanks to be a part of our world</p>';
+		$message  .= '<p>Welcome to Ecomerce '.$request->name.', enjoy online shopping with us. thanks to be a part of our world</p>';
         try {
             mail($to,$subject,$message,$headers);
         }
@@ -206,9 +206,9 @@ class RegisterController extends Controller{
         $input['password'] = bcrypt($request['password']);
 		$user->fill($input)->save();
 		$to = $request->email;
-        $subject = 'Vendor signup on Ratcart';
-        $msg = "Your form has been submitted with us. we will verify and send confermation email to you. have patience</n>.Thanks team Ratcart";
-        $headers = "From: Ratcart<ratcartinfo@gmail.com>";
+        $subject = 'Vendor signup on Ecomerce';
+        $msg = "Your form has been submitted with us. we will verify and send confermation email to you. have patience</n>.Thanks team Ecomerce";
+        $headers = "From: Ecomerce<Ecomerceinfo@gmail.com>";
         try {
             mail($to,$subject,$msg,$headers);
         }

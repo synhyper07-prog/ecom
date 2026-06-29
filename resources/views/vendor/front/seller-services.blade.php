@@ -9,8 +9,8 @@
                 <figure>
                     <a href="#0">
                         <img src="{{asset('assets/vendor_template/images/Flipkart Fulfilment.png')}}" alt="">
-                        <h4>Ratcart Fulfilment</h4>
-                        <div><span>Ratcart Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
+                        <h4>Ecomerce Fulfilment</h4>
+                        <div><span>Ecomerce Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -19,7 +19,7 @@
                     <a href="#0">
                         <img src="{{asset('assets/vendor_template/images/Smart Fulfilment.png')}}" alt="">
                         <h4>Smart Fulfilment</h4>
-                        <div><span>Ratcart Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -27,8 +27,8 @@
                 <figure>
                     <a href="#0">
                         <img src="{{asset('assets/vendor_template/images/Packaging.png')}}" alt="">
-                        <h4>Ratcart Branded Packaging</h4>
-                        <div><span>Ratcart Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
+                        <h4>Ecomerce Branded Packaging</h4>
+                        <div><span>Ecomerce Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -37,7 +37,7 @@
                     <a href="#0">
                         <img src="{{asset('assets/vendor_template/images/PAM.png')}}" alt="">
                         <h4>Paid Account Management (PAM)</h4>
-                        <div><span>Ratcart Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>13th Dec, 2020</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>

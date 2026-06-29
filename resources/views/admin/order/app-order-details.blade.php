@@ -626,7 +626,7 @@
                                                     @endif
                                                     Admin
                                             </td>
-                                            <td>RatCart Store</td>
+                                            <td>Ecomerce Store</td>
                                             @php $productt = App\Models\Product::where('id', $product['item']['id'])->first(); @endphp
                                             <td>{{$product->product_type}}</td>
                                             <td>{{ $product->name }}</td>

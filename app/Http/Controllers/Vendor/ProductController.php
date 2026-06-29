@@ -196,13 +196,10 @@ class ProductController extends Controller
 
 
 
-        $background = Image::canvas(300, 300);
-        $resizedImage = Image::make(public_path().'/assets/images/products/'.$data->photo)->resize(300, 300, function ($c) {
-            $c->aspectRatio();
-            $c->upsize();
-        });
+        $background = Image::create(300, 300);
+        $resizedImage = Image::read(public_path().'/assets/images/products/'.$data->photo)->scaleDown(300, 300);
         // insert resized image centered into background
-        $background->insert($resizedImage, 'center');
+        $background->place($resizedImage, 'center');
         // save or do whatever you like
         $thumbnail = Str::random(12).'.jpg';
         $background->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
@@ -339,20 +336,20 @@ class ProductController extends Controller
                 $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
                 $thumb_url = '';
                     if (strpos($contentType, 'image/') !== false) {
-                        $fimg = Image::make($line[5])->resize(800, 800);
+                        $fimg = Image::read($line[5])->resize(800, 800);
                         $fphoto = Str::random(12).'.jpg';
                         $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                         $input['photo']  = $fphoto;
                         $thumb_url = $line[5];
                     }else{
-                        $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800); 
+                        $fimg = Image::read(public_path().'/assets/images/noimage.png')->resize(800, 800); 
                         $fphoto = Str::random(12).'.jpg';
                         $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                         $input['photo']  = $fphoto;
                         $thumb_url = public_path().'/assets/images/noimage.png';
                     }
 
-                $timg = Image::make($thumb_url)->resize(285, 285);
+                $timg = Image::read($thumb_url)->resize(285, 285);
                 $thumbnail = Str::random(12).'.jpg';
                 $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
                 $input['thumbnail']  = $thumbnail;
@@ -642,21 +639,16 @@ class ProductController extends Controller
                     $prod->slug = Str::slug($data->name,'-').'-'.strtolower($data->sku);
                 }
                 // Set Photo
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(800, null, function ($c) {
-                    $c->aspectRatio();
-                });
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(800);
                 $photo = Str::random(12).'.jpg';
                 $resizedImage->save(public_path().'/assets/images/products/'.$photo);
 
 
                 // Set Thumbnail
-                $background = Image::canvas(300, 300);
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(300, 300, function ($c) {
-                    $c->aspectRatio();
-                    $c->upsize();
-                });
+                $background = Image::create(300, 300);
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(300, 300);
                 // insert resized image centered into background
-                $background->insert($resizedImage, 'center');
+                $background->place($resizedImage, 'center');
                 // save or do whatever you like
                 $thumbnail = Str::random(12).'.jpg';
                 $background->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
@@ -674,9 +666,7 @@ class ProductController extends Controller
                         {
                     $gallery = new Gallery;
                     $name = time().str_replace(' ', '', $file->getClientOriginalName());
-                    $img = Image::make($file->getRealPath())->resize(800, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
+                    $img = Image::read($file->getRealPath())->scaleDown(800);
                     $thumbnail = Str::random(12).'.jpg';
                     $img->save(public_path().'/assets/images/galleries/'.$name);
                     $gallery['photo'] = $name;
@@ -1030,9 +1020,7 @@ class ProductController extends Controller
         $prod->slug = Str::slug($data->name,'-').'-'.strtolower($data->sku);
 
                 // Set Photo
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(800, null, function ($c) {
-                    $c->aspectRatio();
-                });
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(800);
                 $photo = Str::random(12).'.jpg';
                 $resizedImage->save(public_path().'/assets/images/products/'.$photo);
 
@@ -1040,13 +1028,10 @@ class ProductController extends Controller
 
                 // Set Thumbnail
 
-                $background = Image::canvas(300, 300);
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(300, 300, function ($c) {
-                    $c->aspectRatio();
-                    $c->upsize();
-                });
+                $background = Image::create(300, 300);
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(300, 300);
                 // insert resized image centered into background
-                $background->insert($resizedImage, 'center');
+                $background->place($resizedImage, 'center');
                 // save or do whatever you like
                 $thumbnail = Str::random(12).'.jpg';
                 $background->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
@@ -1349,9 +1334,7 @@ class ProductController extends Controller
                 $photo = $prod->photo;
 
                 // Set Photo
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(800, null, function ($c) {
-                    $c->aspectRatio();
-                });
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(800);
                 $photo = Str::random(12).'.jpg';
                 $resizedImage->save(public_path().'/assets/images/products/'.$photo);
                 
@@ -1359,13 +1342,10 @@ class ProductController extends Controller
                 
                 // Set Thumbnail
 
-                 $background = Image::canvas(300, 300);
-                 $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(300, 300, function ($c) {
-                     $c->aspectRatio();
-                     $c->upsize();
-                 });
+                 $background = Image::create(300, 300);
+                 $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(300, 300);
                  // insert resized image centered into background
-                 $background->insert($resizedImage, 'center');
+                 $background->place($resizedImage, 'center');
                  // save or do whatever you like
                  $thumbnail = Str::random(12).'.jpg';
                  $background->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
@@ -1383,9 +1363,7 @@ class ProductController extends Controller
                         {
                     $gallery = new Gallery;
                     $name = time().str_replace(' ', '', $file->getClientOriginalName());
-                    $img = Image::make($file->getRealPath())->resize(800, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
+                    $img = Image::read($file->getRealPath())->scaleDown(800);
 
     
 

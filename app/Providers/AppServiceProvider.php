@@ -20,10 +20,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $admin_lang = DB::table('admin_languages')->where('is_default','=',1)->first();
-        App::setlocale($admin_lang->name);
-        User::chekValidation();
+        \Illuminate\Support\Facades\Log::info("hit boot");
+        \Illuminate\Support\Facades\URL::forceScheme('https');
+        if (strpos(request()->getHost(), 'ngrok') !== false) {
+            \Illuminate\Support\Facades\URL::forceRootUrl('https://' . request()->getHost());
+        }
+        
+        try {
+            $admin_lang = DB::table('admin_languages')->where('is_default','=',1)->first();
+            if ($admin_lang) {
+                App::setlocale($admin_lang->name);
+            }
+            User::chekValidation();
+        } catch (\Exception $e) {
+            // Migrations might not have run yet.
+        }
 
         view()->composer('*',function($settings){
 

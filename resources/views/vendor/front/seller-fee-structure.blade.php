@@ -14,11 +14,11 @@
 <section class="main py-5">
     <h4 class="text-center mb-3"><img src="{{asset('assets/vendor_template/images/cash.png')}}" alt=""> The lowest cost of doing business in the industry</h4>
     <div class="container">
-        <p>With the most competitive rate card in the industry, transparent delivery charges based on the weight and dimensions of your products and a small fixed fee, selling on Ratcart is highly cost-efficient.</p>
+        <p>With the most competitive rate card in the industry, transparent delivery charges based on the weight and dimensions of your products and a small fixed fee, selling on Ecomerce is highly cost-efficient.</p>
     </div>
     <hr>
     <div class="container text-center">
-        <h3 class="my-4">RATCART'S MARKETPLACE FEE STRUCTURE</h3>
+        <h3 class="my-4">Ecomerce'S MARKETPLACE FEE STRUCTURE</h3>
         <div class="feeBox">
             <div class="row">
                 <div class="col-md-3">
@@ -39,7 +39,7 @@
                 <div class="col-md-3">
                     <img src="{{asset('assets/vendor_template/images/online-shop.png')}}" alt="">
                     <h5>Fixed fee</h5>
-                    <p>A small fee that Ratcart charges on all transactions</p>
+                    <p>A small fee that Ecomerce charges on all transactions</p>
                 </div>
             </div>
         </div>

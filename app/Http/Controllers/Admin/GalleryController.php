@@ -42,7 +42,7 @@ class GalleryController extends Controller
                     $gallery = new Gallery;
 
 
-        $img = Image::make($file->getRealPath())->resize(800, 800);
+        $img = Image::read($file->getRealPath())->resize(800, 800);
         $thumbnail = Str::random(10).'.jpg';
         $img->save(public_path().'/assets/images/galleries/'.$thumbnail);
 

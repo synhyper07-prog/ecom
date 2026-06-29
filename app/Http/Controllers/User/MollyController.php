@@ -76,7 +76,7 @@ class MollyController extends Controller
 
     $settings = Generalsetting::findOrFail(1);
          
-        $payment = Mollie::api()->payments()->create([
+        $payment = Mollie::api()->payments->create([
             'amount' => [
                 'currency' => $curr->name,
                 'value' => ''.sprintf('%0.2f', $order['item_amount']).'', // You must send the correct number of decimals, thus we enforce the use of strings
@@ -91,7 +91,7 @@ class MollyController extends Controller
         Session::put('order_data',$order);
 
 
-        $payment = Mollie::api()->payments()->get($payment->id);
+        $payment = Mollie::api()->payments->get($payment->id);
 
         return redirect($payment->getCheckoutUrl(), 303);
 
@@ -108,7 +108,7 @@ public function notify(Request $request){
         $success_url = action('User\PaypalController@payreturn');
         $cancel_url = action('User\PaypalController@paycancle');
 
-        $payment = Mollie::api()->payments()->get(Session::get('payment_id'));
+        $payment = Mollie::api()->payments->get(Session::get('payment_id'));
 
         if($payment->status == 'paid'){
 

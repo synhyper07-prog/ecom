@@ -17,7 +17,7 @@
                             <div class="edit-account-info-div">
                                 <div class="form-group row">
                                     <div class="col-lg-6">
-                                        <img src="http://ratcart.com/assets/images/1608292812ratcart.png" alt>
+                                        <img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
                                     </div>
                                     <div class="col-lg-6" style="text-align: right !important;">
                                         <a class="back-btn" href="{{ route('user-orders') }}">{{ $langg->lang318 }}</a>

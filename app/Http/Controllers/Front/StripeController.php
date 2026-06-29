@@ -16,7 +16,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\UserNotification;
 use App\Models\VendorOrder;
-use Cartalyst\Stripe\Laravel\Facades\Stripe;
+
 use Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,9 +96,9 @@ class StripeController extends Controller
 
         if ($validator->passes()) {
 
-            $stripe = Stripe::make(Config::get('services.stripe.secret'));
+            \Stripe\Stripe::setApiKey(Config::get('services.stripe.secret'));
             try{
-                $token = $stripe->tokens()->create([
+                $token = \Stripe\Token::create([
                     'card' =>[
                             'number' => $request->cardNumber,
                             'exp_month' => $request->month,
@@ -106,18 +106,18 @@ class StripeController extends Controller
                             'cvc' => $request->cardCVC,
                         ],
                     ]);
-                if (!isset($token['id'])) {
+                if (!isset($token->id)) {
                     return back()->with('error','Token Problem With Your Token.');
                 }
 
-                $charge = $stripe->charges()->create([
-                    'card' => $token['id'],
+                $charge = \Stripe\Charge::create([
+                    'source' => $token->id,
                     'currency' => $curr->name,
-                    'amount' => $item_amount,
+                    'amount' => $item_amount * 100,
                     'description' => $item_name,
                     ]);
 
-                if ($charge['status'] == 'succeeded') {
+                if ($charge->status == 'succeeded') {
                         foreach($cart->items as $key => $prod)
                         {
                             if(!empty($prod['item']['license']) && !empty($prod['item']['license_qty']))
@@ -170,8 +170,8 @@ class StripeController extends Controller
                     $order['coupon_code'] = $request->coupon_code;
                     $order['coupon_discount'] = $request->coupon_discount;
                     $order['payment_status'] = "Completed";
-                    $order['txnid'] = $charge['balance_transaction'];
-                    $order['charge_id'] = $charge['id'];
+                    $order['txnid'] = $charge->balance_transaction;
+                    $order['charge_id'] = $charge->id;
                     $order['currency_sign'] = $curr->sign;
                     $order['currency_value'] = $curr->value;
                     $order['shipping_cost'] = $request->shipping_cost;
@@ -355,11 +355,11 @@ class StripeController extends Controller
                     return redirect($success_url);
                 }
                 
-            }catch (Exception $e){
+            }catch (\Stripe\Exception\CardException $e){
                 return back()->with('unsuccess', $e->getMessage());
-            }catch (\Cartalyst\Stripe\Exception\CardErrorException $e){
+            }catch (\Stripe\Exception\InvalidRequestException $e){
                 return back()->with('unsuccess', $e->getMessage());
-            }catch (\Cartalyst\Stripe\Exception\MissingParameterException $e){
+            }catch (\Exception $e){
                 return back()->with('unsuccess', $e->getMessage());
             }
         }

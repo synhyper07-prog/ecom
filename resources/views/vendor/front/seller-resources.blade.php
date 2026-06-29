@@ -10,7 +10,7 @@
                     <a href="#0">
                         <img src="{{ asset('assets/vendor_template/images/onl.png') }}" alt="">
                         <h4>Online Selling Guide</h4>
-                        <div><span>Ratcart Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -19,7 +19,7 @@
                     <a href="#0">
                         <img src="{{ asset('assets/vendor_template/images/Wall of fame-01.png') }}" alt="">
                         <h4>Seller Success Stories</h4>
-                        <div><span>Ratcart Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -28,7 +28,7 @@
                     <a href="#0">
                         <img src="{{ asset('assets/vendor_template/images/pro_0.png') }}" alt="">
                         <h4>Products in Demand</h4>
-                        <div><span>Ratcart Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -40,7 +40,7 @@
                     <a href="#0">
                         <img src="{{ asset('assets/vendor_template/images/slc.png') }}" alt="">
                         <h4>Seller Learning Center</h4>
-                        <div><span>Ratcart Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -48,8 +48,8 @@
                 <figure>
                     <a href="#0">
                         <img src="{{ asset('assets/vendor_template/images/news.png') }}" alt="">
-                        <h4>Ratcart in News</h4>
-                        <div><span>Ratcart Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
+                        <h4>Ecomerce in News</h4>
+                        <div><span>Ecomerce Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>
@@ -58,7 +58,7 @@
                     <a href="#0">
                         <img src="{{ asset('assets/vendor_template/images/L1-01_0.png') }}" alt="">
                         <h4>Samriddhi Workshop</h4>
-                        <div><span>Ratcart Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
+                        <div><span>Ecomerce Admin</span> | <span>1st January, 2021</span> | <span>1 minute</span></div>
                     </a>
                 </figure>
             </div>

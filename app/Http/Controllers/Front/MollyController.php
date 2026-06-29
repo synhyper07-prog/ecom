@@ -82,7 +82,7 @@ public function store(Request $request){
         $data['cancel_url'] = action('Front\PaymentController@paycancle');
         Session::put('paypal_items',$data);
 
-        $payment = Mollie::api()->payments()->create([
+        $payment = Mollie::api()->payments->create([
             'amount' => [
                 'currency' => $curr->name,
                 'value' => ''.sprintf('%0.2f', $order['item_amount']).'', // You must send the correct number of decimals, thus we enforce the use of strings
@@ -94,7 +94,7 @@ public function store(Request $request){
         Session::put('payment_id',$payment->id);
         Session::put('molly_data',$order);
 
-        $payment = Mollie::api()->payments()->get($payment->id);
+        $payment = Mollie::api()->payments->get($payment->id);
 
         return redirect($payment->getCheckoutUrl(), 303);
  }
@@ -114,7 +114,7 @@ public function notify(Request $request){
         $molly_data = Session::get('molly_data');
         $success_url = action('Front\PaymentController@payreturn');
         $cancel_url = action('Front\PaymentController@paycancle');
-        $payment = Mollie::api()->payments()->get(Session::get('payment_id'));
+        $payment = Mollie::api()->payments->get(Session::get('payment_id'));
         // dd($response);
         if($payment->status == 'paid'){
 

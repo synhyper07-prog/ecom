@@ -340,10 +340,7 @@ class ImportController extends Controller
 
 
                 // Set Photo
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(800, null, function ($c) {
-                    $c->aspectRatio();
-                    $c->upsize();
-                });
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(800);
                 $photo = Str::random(10).'.jpg';
                 $resizedImage->save(public_path().'/assets/images/products/'.$photo);
 
@@ -353,13 +350,10 @@ class ImportController extends Controller
                 }
 
 
-                $background = Image::canvas(300, 300);
-                $resizedImage = Image::make($fimageData)->resize(300, 300, function ($c) {
-                    $c->aspectRatio();
-                    $c->upsize();
-                });
+                $background = Image::create(300, 300);
+                $resizedImage = Image::read($fimageData)->scaleDown(300, 300);
                 // insert resized image centered into background
-                $background->insert($resizedImage, 'center');
+                $background->place($resizedImage, 'center');
                 // save or do whatever you like
                 $thumbnail = Str::random(12).'.jpg';
                 $background->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
@@ -649,10 +643,7 @@ class ImportController extends Controller
 
 
                 // Set Photo
-                $resizedImage = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(800, null, function ($c) {
-                    $c->aspectRatio();
-                    $c->upsize();
-                });
+                $resizedImage = Image::read(public_path().'/assets/images/products/'.$prod->photo)->scaleDown(800);
                 $photo = Str::random(12).'.jpg';
                 $resizedImage->save(public_path().'/assets/images/products/'.$photo);
 
@@ -666,13 +657,10 @@ class ImportController extends Controller
 
 
 
-        $background = Image::canvas(300, 300);
-        $resizedImage = Image::make($fimageData)->resize(300, 300, function ($c) {
-            $c->aspectRatio();
-            $c->upsize();
-        });
+        $background = Image::create(300, 300);
+        $resizedImage = Image::read($fimageData)->scaleDown(300, 300);
         // insert resized image centered into background
-        $background->insert($resizedImage, 'center');
+        $background->place($resizedImage, 'center');
         // save or do whatever you like
         $thumbnail = Str::random(10).'.jpg';
         $background->save(public_path().'/assets/images/thumbnails/'.$thumbnail);

@@ -6,8 +6,11 @@ help: ## Print help
 deploy: ## One command to deploy: build, run, install deps, and migrate
 	@echo "Starting deployment..."
 	docker compose up -d --build
-	@echo "Installing Composer dependencies..."
-	docker compose exec -T app composer install --no-interaction --prefer-dist --optimize-autoloader
+	@echo "Updating Composer dependencies..."
+	docker compose exec -T app composer update --no-interaction --prefer-dist --optimize-autoloader
+	@echo "Installing Node dependencies and building assets..."
+	docker compose exec -T app npm install
+	docker compose exec -T app npm run build
 	@echo "Setting up environment..."
 	docker compose exec -T app cp -n .env.example .env || true
 	docker compose exec -T app php artisan key:generate

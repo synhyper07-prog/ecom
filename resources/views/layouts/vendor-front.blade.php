@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light">
-	        <a class="navbar-brand" href="{{route('vendor.front.index')}}"><img style="height: 40px;" src="{{asset('assets/vendor_template/images/ratcart.png')}}" alt=""></a>
+	        <a class="navbar-brand" href="{{route('vendor.front.index')}}"><img style="height: 40px;" src="{{asset('assets/vendor_template/images/Ecomerce.png')}}" alt=""></a>
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	          <span class="navbar-toggler-icon"></span>
 	        </button>

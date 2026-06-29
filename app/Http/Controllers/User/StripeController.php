@@ -9,12 +9,10 @@ use App\Models\User;
 use App\Models\UserSubscription;
 use Auth;
 use Carbon\Carbon;
-use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Redirect;
-use Stripe\Error\Card;
 use URL;
 use Validator;
 use Illuminate\Support\Str;
@@ -26,7 +24,7 @@ class StripeController extends Controller
 
     public function __construct()
     {
-        //Set Spripe Keys
+        //Set Stripe Keys
         $stripe = Generalsetting::findOrFail(1);
         Config::set('services.stripe.key', $stripe->stripe_key);
         Config::set('services.stripe.secret', $stripe->stripe_secret);
@@ -36,7 +34,7 @@ class StripeController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'shop_name'   => 'unique:users',
-           ],[ 
+           ][ 
                'shop_name.unique' => 'This shop name has already been taken.'
             ]);
         $user = Auth::user();
@@ -56,9 +54,9 @@ class StripeController extends Controller
                     ]);
         if ($validator->passes()) {
 
-            $stripe = Stripe::make(Config::get('services.stripe.secret'));
+            \Stripe\Stripe::setApiKey(Config::get('services.stripe.secret'));
             try{
-                $token = $stripe->tokens()->create([
+                $token = \Stripe\Token::create([
                     'card' =>[
                             'number' => $request->card,
                             'exp_month' => $request->month,
@@ -66,18 +64,18 @@ class StripeController extends Controller
                             'cvc' => $request->cvv,
                         ],
                     ]);
-                if (!isset($token['id'])) {
+                if (!isset($token->id)) {
                     return back()->with('error','Token Problem With Your Token.');
                 }
 
-                $charge = $stripe->charges()->create([
-                    'card' => $token['id'],
+                $charge = \Stripe\Charge::create([
+                    'source' => $token->id,
                     'currency' => $item_currency,
-                    'amount' => $item_amount,
+                    'amount' => $item_amount * 100, // Stripe expects amount in cents
                     'description' => $item_name,
                     ]);
 
-                if ($charge['status'] == 'succeeded') {
+                if ($charge->status == 'succeeded') {
 
                     $today = Carbon::now()->format('Y-m-d');
                     $date = date('Y-m-d', strtotime($today.' + '.$subs->days.' days'));
@@ -116,8 +114,8 @@ class StripeController extends Controller
                     $sub->allowed_products = $subs->allowed_products;
                     $sub->details = $subs->details;
                     $sub->method = 'Stripe';
-                    $sub->txnid = $charge['balance_transaction'];
-                    $sub->charge_id = $charge['id'];
+                    $sub->txnid = $charge->balance_transaction;
+                    $sub->charge_id = $charge->id;
                     $sub->status = 1;
                     $sub->save();
                     if($settings->is_smtp == 1)
@@ -144,11 +142,11 @@ class StripeController extends Controller
 
                 }
                 
-            }catch (Exception $e){
+            }catch (\Stripe\Exception\CardException $e){
                 return back()->with('unsuccess', $e->getMessage());
-            }catch (\Cartalyst\Stripe\Exception\CardErrorException $e){
+            }catch (\Stripe\Exception\InvalidRequestException $e){
                 return back()->with('unsuccess', $e->getMessage());
-            }catch (\Cartalyst\Stripe\Exception\MissingParameterException $e){
+            }catch (\Exception $e){
                 return back()->with('unsuccess', $e->getMessage());
             }
         }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Classes\GeniusMailer;
-use App\Classes\Instamojo;
+
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Coupon;
@@ -20,6 +20,7 @@ use App\Models\VendorOrder;
 use Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -111,22 +112,31 @@ class InstamojoController extends Controller
 
         $settings = Generalsetting::findOrFail(1);
         if($settings->instamojo_sandbox == 1){
-        $api = new Instamojo($settings->instamojo_key, $settings->instamojo_token, 'https://test.instamojo.com/api/1.1/');
+            $api_url = 'https://test.instamojo.com/api/1.1/payment-requests/';
         }
         else {
-        $api = new Instamojo($settings->instamojo_key, $settings->instamojo_token);
+            $api_url = 'https://www.instamojo.com/api/1.1/payment-requests/';
         }
 
-try {
-    $response = $api->paymentRequestCreate(array(
-        "purpose" => $item_name,
-        "amount" => $item_amount,
-        "send_email" => true,
-        "email" => $request->email,
-        "redirect_url" => $notify_url
-        ));
-    
-                    $redirect_url = $response['longurl'];
+        try {
+            $response = Http::withHeaders([
+                'X-Api-Key' => $settings->instamojo_key,
+                'X-Auth-Token' => $settings->instamojo_token
+            ])->post($api_url, [
+                "purpose" => $item_name,
+                "amount" => $item_amount,
+                "send_email" => true,
+                "email" => $request->email,
+                "redirect_url" => $notify_url
+            ]);
+            
+            $responseData = $response->json();
+            
+            if (!$response->successful() || !isset($responseData['success']) || !$responseData['success']) {
+                return redirect()->back()->with('unsuccess','Instamojo Error: ' . json_encode($responseData));
+            }
+            
+            $redirect_url = $responseData['payment_request']['longurl'];
                     $order['user_id'] = $request->user_id;
                     $order['cart'] = utf8_encode(bzcompress(serialize($cart), 9));
                     $order['totalQty'] = $request->totalQty;
@@ -150,7 +160,7 @@ try {
                     $order['shipping_city'] = $request->shipping_city;
                     $order['shipping_zip'] = $request->shipping_zip;
                     $order['order_note'] = $request->order_notes;
-                    $order['pay_id'] = $response['id'];
+                    $order['pay_id'] = $responseData['payment_request']['id'];
                     $order['coupon_code'] = $request->coupon_code;
                     $order['coupon_discount'] = $request->coupon_discount;
                     $order['payment_status'] = "Pending";
@@ -347,8 +357,8 @@ try {
      return redirect($redirect_url);
 
 }
-catch (Exception $e) {
-    print('Error: ' . $e->getMessage());
+catch (\Exception $e) {
+    return redirect()->back()->with('unsuccess','Error: ' . $e->getMessage());
 }
 
  }

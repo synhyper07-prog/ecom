@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ratcart</title>
+    <title>Ecomerce</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;600&display=swap" rel="stylesheet">
 </head>
@@ -21,7 +21,7 @@
                                     <table align="center" border="0" cellpadding="0" cellspacing="0" style=" width:100%">
                                         <tbody>
                                             <tr>
-                                                <td style="padding:10px 0; text-align: left;"><img src="http://ratcart.com/assets/images/245x53.png" alt="">
+                                                <td style="padding:10px 0; text-align: left;"><img src="http://Ecomerce.com/assets/images/245x53.png" alt="">
                                                 </td>
                                                 <td style="padding:10px 0; text-align: center;"><h3>Order Invoice</h3></td>
                                             </tr>
@@ -136,10 +136,10 @@
                         <tbody>
                             <tr>
                                 <td style="padding:10px 0; border-bottom:1px solid #000;">
-                                    <p style="  font-size: 11px; font-style: italic;"><strong> Returns Policy:</strong> At Ratcart we try to deliver perfectly each and every time. But in the off-chance that you need to return the item, please do so with the <strong>original Brand box/price tag, </strong>Original packing and invoice without which it will be really difficult for us to act on your request. Please help us in helping you. Terms and conditions apply.</p>
+                                    <p style="  font-size: 11px; font-style: italic;"><strong> Returns Policy:</strong> At Ecomerce we try to deliver perfectly each and every time. But in the off-chance that you need to return the item, please do so with the <strong>original Brand box/price tag, </strong>Original packing and invoice without which it will be really difficult for us to act on your request. Please help us in helping you. Terms and conditions apply.</p>
                                     <p style="  font-size: 11px; font-style: italic;">The goods sold as are intended for end user consumption and not for re-sale.</p>
                                     <p style="  font-size: 11px; font-style: italic;">Regd. office: SYNHYPER SHOP ONLINE PRIVATE LIMITED ,92 KARRAHI ROAD BARRA KANPUR Kanpur UP 208027 IN</p>
-                                    <h5>Contact Ratcart: ratcartinfo@gmail.com</h5>
+                                    <h5>Contact Ecomerce: Ecomerceinfo@gmail.com</h5>
                                 </td>
                             </tr>
                         </tbody>

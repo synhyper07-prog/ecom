@@ -109,7 +109,7 @@ class NotificationController extends Controller
         	//array_push($firebase_token_arr, $value->fire_base_token);
             $registrationIds = $value->fire_base_token;
             $body            = $request['message'];
-            $title           = 'Ratcart';
+            $title           = 'Ecomerce';
             #prep the bundle
             $msg             = array(
                 'body'       => $body,

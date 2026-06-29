@@ -34,25 +34,25 @@
 </div>
 <section class="sellOn py-5 border-top">
     <div class="container">
-    	<h4 class="text-center mb-5">RATCART SELLER HUB</h4>
+    	<h4 class="text-center mb-5">Ecomerce SELLER HUB</h4>
         <ul>
         	<li>
                 <p><strong>Ease of handing- </strong>Ease of sales get full sales support,from end to end. manegement of your stores, catalogs, and supply chain manegment. focus on your brand taking care of rest.</p>
         	</li>
         	<li>
-                <p><strong>Quick and secure payments- </strong>payment work quick and secure ratcart give you timely payment with complete transparency.</p>
+                <p><strong>Quick and secure payments- </strong>payment work quick and secure Ecomerce give you timely payment with complete transparency.</p>
         	</li>
         	<li>
                 <p><strong>Development through marketing- </strong>Benifit from better expertise like in multichannel promotinde campaingns, digital marketing,social media with your consumeya.</p>
         	</li>
         	<li>
-                <p><strong>Account maneger- </strong>Ratcart gives you easy to handle platform for manege your accounts simply and grow your sales mountaning.</p>
+                <p><strong>Account maneger- </strong>Ecomerce gives you easy to handle platform for manege your accounts simply and grow your sales mountaning.</p>
         	</li>
         	<li>
-                <p><strong>Good seller support- </strong>Ratcart has a very good team will always avlaible to solve any issue,if you have question.</p>
+                <p><strong>Good seller support- </strong>Ecomerce has a very good team will always avlaible to solve any issue,if you have question.</p>
         	</li>
         	<li>
-                <p><strong>Logistic support- </strong>Ratcart give you better logistic support with our best courier partner.</p>
+                <p><strong>Logistic support- </strong>Ecomerce give you better logistic support with our best courier partner.</p>
         	</li>
         </ul>
     </div>
@@ -62,8 +62,8 @@
         <nav class="mb-4">
             <div class="nav nav-tabs justify-content-around" id="nav-tab" role="tablist">
                 <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">WHY SELL ONLINE</a>
-                <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">WHY SELL WITH RATCART</a>
-                <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">WHY SELL WITH RATCART</a>
+                <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">WHY SELL WITH Ecomerce</a>
+                <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">WHY SELL WITH Ecomerce</a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -74,7 +74,7 @@
                             <div class="boxCircle">
                                 1
                             </div>
-                            <h5>SELL ON RATCART</h5>
+                            <h5>SELL ON Ecomerce</h5>
                             <p>Online selling is more faster then particular shop online sell covered more city more customer more selling  products. even when you shop will be closed you don,t need barginig any more with any customer.</p>
                            {{--  <ul class="pl-3">
                                 <li>Avoid huge investments.</li>
@@ -101,7 +101,7 @@
                                 3
                             </div>
                             <h5>EARN BIG</h5>
-                            <p>More product sell in at a time to get your payment in as seven to fifteen days when order deliver succsesfull our payment partner razorpay benifit of selling on ratcart.</p>
+                            <p>More product sell in at a time to get your payment in as seven to fifteen days when order deliver succsesfull our payment partner razorpay benifit of selling on Ecomerce.</p>
                             {{-- <ul class="pl-3">
                                 <li>Avoid huge investments.</li>
                                 <li>Large customer base to sell anywhere.</li>
@@ -114,7 +114,7 @@
                                 4
                             </div>
                             <h5>GST DETAIL</h5>
-                            <p>You have succsesfully register on ratcart as a vendor you need to confirm GST detail.</p>
+                            <p>You have succsesfully register on Ecomerce as a vendor you need to confirm GST detail.</p>
                             {{-- <ul class="pl-3">
                                 <li>Avoid huge investments.</li>
                                 <li>Large customer base to sell anywhere.</li>
@@ -127,7 +127,7 @@
                                 5
                             </div>
                             <h5>CANCEL CHECK</h5>
-                            <p>All you need to be register on ratcart you have one cancellation check will be uploaded on our vendor form.</p>
+                            <p>All you need to be register on Ecomerce you have one cancellation check will be uploaded on our vendor form.</p>
                             {{-- <ul class="pl-3">
                                 <li>Avoid huge investments.</li>
                                 <li>Large customer base to sell anywhere.</li>
@@ -249,7 +249,7 @@
 {{-- <section class="grow">
     <div class="container">
         <div class="text-center">
-            <h4>GROW FASTER WITH RATCART</h4>
+            <h4>GROW FASTER WITH Ecomerce</h4>
             <a href="#0" class="btn btn-link">Know more</a>
         </div>
     </div>
@@ -259,13 +259,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            	<h5 align="center">RATCART</h5>
+            	<h5 align="center">Ecomerce</h5>
                 <div class="d-flex">
                     <div class="w-50  mr-3">
-                        <img class="img-thumbnail mr-3" src="https://ratcart.com/assets/vendor_template/images/ratcart.png" alt="">
+                        <img class="img-thumbnail mr-3" src="https://Ecomerce.com/assets/vendor_template/images/Ecomerce.png" alt="">
                     </div>
                     <div>
-                        <p><i>Offer you to sell product with low cost commisson. our ratcart open for transparency no hidden charge, transparency on delivery charge depend on the product weight dimention and a small fix feet.</i></p>
+                        <p><i>Offer you to sell product with low cost commisson. our Ecomerce open for transparency no hidden charge, transparency on delivery charge depend on the product weight dimention and a small fix feet.</i></p>
                     </div>
                 </div>
             </div>
@@ -274,8 +274,8 @@
 </section>
 <section class="sellOn py-5 border-top">
     <div class="container">
-        <h4 class="text-center mb-5">SELL ON RATCART</h4>
-        <p>Ratcart market place for selling online product are lisiting in our product category with minimum charges or investment our team export helping you to sell product on ratcart. it gives you full seller support ratcart always on how to deliver more products in india.</p>
+        <h4 class="text-center mb-5">SELL ON Ecomerce</h4>
+        <p>Ecomerce market place for selling online product are lisiting in our product category with minimum charges or investment our team export helping you to sell product on Ecomerce. it gives you full seller support Ecomerce always on how to deliver more products in india.</p>
     </div>
 </section>
 <section class="testimonial">

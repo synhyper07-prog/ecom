@@ -271,7 +271,7 @@ class ProductController extends Controller
                     }
                 }
 
-        $img = Image::make(public_path().'/assets/images/products/'.$data->photo)->resize(285, 285);
+        $img = Image::read(public_path().'/assets/images/products/'.$data->photo)->resize(285, 285);
         $thumbnail = Str::random(10).'.jpg';
         $img->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
         $data->thumbnail  = $thumbnail;
@@ -541,7 +541,7 @@ class ProductController extends Controller
         }
 
         // Set Thumbnail
-        $img = Image::make(public_path().'/assets/images/products/'.$prod->photo)->resize(285, 285);
+        $img = Image::read(public_path().'/assets/images/products/'.$prod->photo)->resize(285, 285);
         $thumbnail = Str::random(10).'.jpg';
         $img->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
         $prod->thumbnail  = $thumbnail;
@@ -682,13 +682,13 @@ class ProductController extends Controller
                 $thumb_url = '';
 
                     if (strpos($contentType, 'image/') !== false) {
-                        $fimg = Image::make($line[5])->resize(800, 800);
+                        $fimg = Image::read($line[5])->resize(800, 800);
                         $fphoto = Str::random(10).'.jpg';
                         $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                         $input['photo']  = $fphoto;
                         $thumb_url = $line[5];
                     }else{
-                        $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800); 
+                        $fimg = Image::read(public_path().'/assets/images/noimage.png')->resize(800, 800); 
                         $fphoto = Str::random(10).'.jpg';
                         $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                         $input['photo']  = $fphoto;
@@ -696,7 +696,7 @@ class ProductController extends Controller
                     }
                 
 
-                $timg = Image::make($thumb_url)->resize(285, 285);
+                $timg = Image::read($thumb_url)->resize(285, 285);
                 $thumbnail = Str::random(10).'.jpg';
                 $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
                 $input['thumbnail']  = $thumbnail;

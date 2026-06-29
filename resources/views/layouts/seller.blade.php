@@ -20,11 +20,11 @@
 	    <meta property="og:title" content="{{$productt->name}}" />
 	    <meta property="og:description" content="{{ $productt->meta_description != null ? $productt->meta_description : strip_tags($productt->description) }}" />
 	    <meta property="og:image" content="{{asset('assets/images/thumbnails/'.$productt->thumbnail)}}" />
-	    <meta name="author" content="RatCart">
+	    <meta name="author" content="Ecomerce">
     	<title>{{substr($productt->name, 0,11)."-"}}{{$gs->title}}</title>
     @else
-	    <meta name="keywords" content="RatCart">
-	    <meta name="author"   content="RatCart">
+	    <meta name="keywords" content="Ecomerce">
+	    <meta name="author"   content="Ecomerce">
 		<title>{{$gs->title}}</title>
     @endif
 	<!-- favicon -->
@@ -110,7 +110,7 @@
 					<div class="footer-info-area">
 						<div class="footer-logo">
 							<a href="{{ route('front.index') }}" class="logo-link">
-								<img src="{{asset('assets/images/'.$gs->footer_logo)}}" alt="">
+								<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
 							</a>
 						</div>
 						<div class="text">
@@ -210,7 +210,7 @@
 							<li>
 								<div class="post">
 								  <div class="post-img">
-									<img style="height: 50px; width:200px;" src="https://ratcart.com/assets/images/224x40.png" alt="">
+									<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
 								  </div>
 								</div>
 							</li>
@@ -224,7 +224,7 @@
 							<li>
 								<div class="post">
 								  <div class="post-img">
-									<img style="height: 50px; width:200px;" src="https://ratcart.com/assets/images/23_lgoog.png" alt="">
+									<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
 								  </div>
 								</div>
 							</li>

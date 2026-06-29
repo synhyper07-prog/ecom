@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Classes\GeniusMailer;
-use App\Classes\Instamojo;
+
 use App\Http\Controllers\Controller;
 use App\Models\Currency;
 use App\Models\Generalsetting;
@@ -14,6 +14,7 @@ use Auth;
 use Carbon\Carbon;
 use Config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -48,47 +49,56 @@ class InstamojoController extends Controller
      Session::put('user_data',$input);
 
         if($settings->instamojo_sandbox == 1){
-        $api = new Instamojo($settings->instamojo_key, $settings->instamojo_token, 'https://test.instamojo.com/api/1.1/');
+            $api_url = 'https://test.instamojo.com/api/1.1/payment-requests/';
         }
         else {
-        $api = new Instamojo($settings->instamojo_key, $settings->instamojo_token);
+            $api_url = 'https://www.instamojo.com/api/1.1/payment-requests/';
         }
 
-try {
-    $response = $api->paymentRequestCreate(array(
-        "purpose" => $item_name,
-        "amount" => $item_amount,
-        "send_email" => false,
-        "email" => $request->email,
-        "redirect_url" => $notify_url
-        ));
-    
-    $redirect_url = $response['longurl'];
-     $sub['user_id'] = $user->id;
-     $sub['subscription_id'] = $subs->id;
-     $sub['title'] = $subs->title;
-     $sub['currency'] = $subs->currency;
-     $sub['currency_code'] = $subs->currency_code;
-     $sub['price'] = $subs->price;
-     $sub['days'] = $subs->days;
-     $sub['allowed_products'] = $subs->allowed_products;
-     $sub['details'] = $subs->details;
-     $sub['method'] = 'Instamojo';  
-     $sub['pay_id'] = $response['id'];
+        try {
+            $response = Http::withHeaders([
+                'X-Api-Key' => $settings->instamojo_key,
+                'X-Auth-Token' => $settings->instamojo_token
+            ])->post($api_url, [
+                "purpose" => $item_name,
+                "amount" => $item_amount,
+                "send_email" => false,
+                "email" => $request->email,
+                "redirect_url" => $notify_url
+            ]);
+            
+            $responseData = $response->json();
+            
+            if (!$response->successful() || !isset($responseData['success']) || !$responseData['success']) {
+                return redirect()->back()->with('unsuccess','Instamojo Error: ' . json_encode($responseData));
+            }
+            
+            $redirect_url = $responseData['payment_request']['longurl'];
+            
+             $sub['user_id'] = $user->id;
+             $sub['subscription_id'] = $subs->id;
+             $sub['title'] = $subs->title;
+             $sub['currency'] = $subs->currency;
+             $sub['currency_code'] = $subs->currency_code;
+             $sub['price'] = $subs->price;
+             $sub['days'] = $subs->days;
+             $sub['allowed_products'] = $subs->allowed_products;
+             $sub['details'] = $subs->details;
+             $sub['method'] = 'Instamojo';  
+             $sub['pay_id'] = $responseData['payment_request']['id'];
 
-     Session::put('subscription',$sub);
+             Session::put('subscription',$sub);
 
-
-        $data['total'] =  $item_amount;
-        $data['return_url'] = $notify_url;
-        $data['cancel_url'] = $cancel_url;
-        Session::put('paypal_items',$data);
-        return redirect($redirect_url);
-                
-}
-catch (Exception $e) {
-    print('Error: ' . $e->getMessage());
-}
+            $data['total'] =  $item_amount;
+            $data['return_url'] = $notify_url;
+            $data['cancel_url'] = $cancel_url;
+            Session::put('paypal_items',$data);
+            return redirect($redirect_url);
+                    
+        }
+        catch (\Exception $e) {
+            return redirect()->back()->with('unsuccess','Error: ' . $e->getMessage());
+        }
 
  }
 

@@ -63,7 +63,7 @@ html {
 
                                     <div class="product__header">
                                         <div class="col-lg-3">
-                                            <img src="http://ratcart.com/assets/images/1608292812ratcart.png" alt>
+                                            <img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
                                         </div>
                                         <div class="row reorder-xs">
                                             <div class="col-lg-8 col-md-5 col-sm-5 col-xs-12">

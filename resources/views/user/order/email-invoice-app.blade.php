@@ -4,14 +4,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="RatCart">
-        <meta name="author"   content="RatCart">
+        <meta name="keywords" content="Ecomerce">
+        <meta name="author"   content="Ecomerce">
         <title>Rat Cart</title>
         <!-- favicon -->
          <!-- stylesheet -->
-        <link rel="stylesheet" href="http://ratcart.knovatik.com/assets/front/css/all.css">
+        <link rel="stylesheet" href="http://Ecomerce.knovatik.com/assets/front/css/all.css">
         <!--Updated CSS-->
-        <link rel="stylesheet" href="http://ratcart.knovatik.com/assets/front/css/styles.php?color=0f78f2&amp;amp;header_color=ffffff&amp;amp;footer_color=143250&amp;amp;copyright_color=02020c&amp;amp;menu_color=ff5500&amp;amp;menu_hover_color=02020c">
+        <link rel="stylesheet" href="http://Ecomerce.knovatik.com/assets/front/css/styles.php?color=0f78f2&amp;amp;header_color=ffffff&amp;amp;footer_color=143250&amp;amp;copyright_color=02020c&amp;amp;menu_color=ff5500&amp;amp;menu_hover_color=02020c">
         <style type="text/css">
                 .logo-header .search-box .categori-container .categoris option {
                     background: none !important; 
@@ -54,7 +54,7 @@
                         <div class="user-profile-details">
                             <div class="order-details">
                                 <div class="col-lg-10">
-                                    <img src="http://ratcart.com/assets/images/1608292812ratcart.png" alt>
+                                    <img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
                                 </div>
                                 <div class="view-order-page">
                                     <div class="edit-account-info-div">
@@ -288,23 +288,23 @@
                 </div>
             </div>
         </section>
-        <script src="http://ratcart.knovatik.com/assets/front/js/jquery.js"></script>
-        <script src="http://ratcart.knovatik.com/assets/front/js/vue.js"></script>
-        <script src="http://ratcart.knovatik.com/assets/front/jquery-ui/jquery-ui.min.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/jquery.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/vue.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/jquery-ui/jquery-ui.min.js"></script>
         <!-- popper -->
-        <script src="http://ratcart.knovatik.com/assets/front/js/popper.min.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/popper.min.js"></script>
         <!-- bootstrap -->
-        <script src="http://ratcart.knovatik.com/assets/front/js/bootstrap.min.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/bootstrap.min.js"></script>
         <!-- plugin js-->
-        <script src="http://ratcart.knovatik.com/assets/front/js/plugin.js"></script>
-        <script src="http://ratcart.knovatik.com/assets/front/js/xzoom.min.js"></script>
-        <script src="http://ratcart.knovatik.com/assets/front/js/jquery.hammer.min.js"></script>
-        <script src="http://ratcart.knovatik.com/assets/front/js/setup.js"></script>
-        <script src="http://ratcart.knovatik.com/assets/front/js/toastr.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/plugin.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/xzoom.min.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/jquery.hammer.min.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/setup.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/toastr.js"></script>
         <!-- main -->
-        <script src="http://ratcart.knovatik.com/assets/front/js/main.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/main.js"></script>
         <!-- custom -->
-        <script src="http://ratcart.knovatik.com/assets/front/js/custom.js"></script>
+        <script src="http://Ecomerce.knovatik.com/assets/front/js/custom.js"></script>
     </body>
 </html>
     

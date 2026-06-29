@@ -311,7 +311,7 @@ class ImportController extends Controller
                     $fimageData = $prod->photo;
                 }
 
-                $img = Image::make($fimageData)->resize(285, 285);
+                $img = Image::read($fimageData)->resize(285, 285);
                 $thumbnail = Str::random(10).'.jpg';
                 $img->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
                 $prod->thumbnail  = $thumbnail;
@@ -325,7 +325,7 @@ class ImportController extends Controller
                         {
                     $gallery = new Gallery;
                     $name = time().str_replace(' ', '', $file->getClientOriginalName());
-                    $img = Image::make($file->getRealPath())->resize(800, 800);
+                    $img = Image::read($file->getRealPath())->resize(800, 800);
                     $thumbnail = Str::random(10).'.jpg';
                     $img->save(public_path().'/assets/images/galleries/'.$name);
                     $gallery['photo'] = $name;
@@ -572,7 +572,7 @@ class ImportController extends Controller
             $fimageData = $prod->photo;
         }
 
-        $img = Image::make($fimageData)->resize(285, 285);
+        $img = Image::read($fimageData)->resize(285, 285);
         $thumbnail = Str::random(10).'.jpg';
         $img->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
         $prod->thumbnail  = $thumbnail;

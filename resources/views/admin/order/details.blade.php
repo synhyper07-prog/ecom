@@ -326,7 +326,7 @@
                                                 Admin
 
                                             </td>
-                                             <td>RatCart Store</td>
+                                             <td>Ecomerce Store</td>
 
 
 

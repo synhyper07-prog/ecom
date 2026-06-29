@@ -128,9 +128,9 @@ class BaseController extends Controller{
 
     public function sendmail($pdf, $order_no) {
         $name        = config('app.name');
-        $email       = "ratcartinfo@gmail.com";
+        $email       = "Ecomerceinfo@gmail.com";
         $to          = Auth::user()->email;
-        $from        = "ratcartinfo@gmail.com";
+        $from        = "Ecomerceinfo@gmail.com";
         $subject     = "Invoice of new order from ".config('app.name');
         $mainMessage = "Dear ".Auth::user()->name.", thank you for placing new order on ".config('app.name').". below is attached invoice of order no ".$order_no;
         $fileatt     = public_path('invoice_pdf/'.$pdf);
