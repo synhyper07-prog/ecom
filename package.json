@@ -1,12 +1,11 @@
 {
     "private": true,
-    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build"
     },
     "engines": {
-        "node": "18.x"
+        "node": "24.x"
     },
     "devDependencies": {
         "axios": "^1.7.4",
